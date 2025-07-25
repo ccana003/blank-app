@@ -48,3 +48,5 @@ if __name__ == "__main__":
     print("🔍 Columns:", df.columns.tolist())
     print("🧪 Sample records:")
     print(df.head())
+    df.to_csv("files/redcap_survey_data.csv", index=False)
+
