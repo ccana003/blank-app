@@ -42,3 +42,9 @@ def pull_data() -> pd.DataFrame:
     df = df[~df["record_id"].isin(EXCLUDED_IDS)]
 
     return df.reset_index(drop=True)
+
+if __name__ == "__main__":
+    df = pull_data()
+    print("🔍 Columns:", df.columns.tolist())
+    print("🧪 Sample records:")
+    print(df.head())
