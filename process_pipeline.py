@@ -1,8 +1,8 @@
 import os
 from scripts import (
     extract_redcap_data,
+    filter_by_admin5_date,
     filter_enrolled,
-    filter_by_date,
     select_variables,
     contextual_file,
     transform_survey,
@@ -12,7 +12,7 @@ from scripts import (
 def run_pipeline(start_date: str, end_date: str) -> str:
     df = extract_redcap_data.pull_data()
     df = filter_enrolled.apply(df)
-    df = filter_by_date.apply(df, start_date, end_date)
+    df = filter_by_admin5_date.apply(df, start_date, end_date)
     df = select_variables.apply(df)
 
     contextual_df = contextual_file.build(df, start_date, end_date)
