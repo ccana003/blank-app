@@ -21,3 +21,15 @@ for script in steps:
     subprocess.run(["python", f"scripts/{script}"], check=True)
 
 print("\n✅ Pipeline completed.")
+
+if __name__ == "__main__":
+    import os
+
+    INPUT_FILE = "files/redcap_merged_baseline_only.csv"
+    OUTPUT_FILE = "files/redcap_survey_data.csv"
+
+    df = pd.read_csv(INPUT_FILE, dtype=str)
+    df = apply(df)
+    os.makedirs("files", exist_ok=True)
+    df.to_csv(OUTPUT_FILE, index=False)
+    print(f"✅ Cleaned file saved to: {OUTPUT_FILE}")
