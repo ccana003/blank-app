@@ -42,3 +42,13 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
     print(f"✅ Columns retained: {len(existing_fields)}")
     print(f"❌ Columns dropped: {len(df.columns) - len(existing_fields)}")
     return filtered_df.reset_index(drop=True)
+
+if __name__ == "__main__":
+    from select_variables import apply  # or just `import select_variables` if needed
+    INPUT_FILE = "files/redcap_enrolled.csv"
+    OUTPUT_FILE = "files/redcap_selected.csv"
+
+    df = pd.read_csv(INPUT_FILE, dtype=str)
+    df = apply(df)
+    df.to_csv(OUTPUT_FILE, index=False)
+    print(f"✅ Selected variables saved to: {OUTPUT_FILE}")
