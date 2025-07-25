@@ -2,7 +2,6 @@
   "name": "CS4 Streamlit App",
   "image": "mcr.microsoft.com/devcontainers/python:3.10",
   "postCreateCommand": "pip install -r requirements.txt",
-  //"postStartCommand": "streamlit run app.py --server.headless true --server.port 8501 --server.enableCORS false",
   "forwardPorts": [8501],
   "customizations": {
     "vscode": {
