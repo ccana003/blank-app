@@ -131,3 +131,13 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
     df = df[admin_cols + other_cols]
 
     return df.reset_index(drop=True)
+
+if __name__ == "__main__":
+    import transform_survey  # or from . import transform_survey if needed
+    INPUT_FILE = "files/redcap_selected.csv"
+    OUTPUT_FILE = "files/redcap_transformed.csv"
+
+    df = pd.read_csv(INPUT_FILE, dtype=str)
+    df = transform_survey.apply(df)
+    df.to_csv(OUTPUT_FILE, index=False)
+    print(f"✅ Transformed survey data saved to: {OUTPUT_FILE}")
