@@ -3,7 +3,7 @@ import subprocess
 
 steps = [
     "extract_redcap_data.py",
-    "filter_redcap_fields.py",
+    "select_variables.py",
     "apply_special_rules.py",
     "merge_baseline.py",
     "flag_missing.py",
