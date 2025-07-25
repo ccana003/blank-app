@@ -36,3 +36,12 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
     print(f"📦 Merged {merged_baseline.shape[0]} baseline records (duplicates resolved and singletons preserved).")
 
     return pd.concat([non_baseline, merged_baseline], ignore_index=True)
+
+if __name__ == "__main__":
+    INPUT_FILE = "files/redcap_transformed.csv"
+    OUTPUT_FILE = "files/redcap_merged_baseline_only.csv"
+
+    df = pd.read_csv(INPUT_FILE, dtype=str)
+    df = apply(df)
+    df.to_csv(OUTPUT_FILE, index=False)
+    print(f"✅ Merged baseline-only data saved to: {OUTPUT_FILE}")
