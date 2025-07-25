@@ -1,9 +1,24 @@
 {
+  "name": "CEAL CS4 Streamlit App",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.10"
+    }
+  },
   "postCreateCommand": "pip install -r requirements.txt",
   "forwardPorts": [8501],
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python"]
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit App",
+      "onAutoForward": "openBrowser"
     }
   }
 }
