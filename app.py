@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from datetime import date
-from process_data import process_csv  # We'll create this file next
+from process_pipeline import process_csv  # We'll create this file next
 
 # Ensure output directory exists
 os.makedirs("output", exist_ok=True)
