@@ -3,14 +3,14 @@ import subprocess
 
 steps = [
     "extract_redcap_data.py",
-    "filter_redcap_fields.py",
-    "apply_special_rules.py",
-    "merge_baseline.py",
-    "flag_missing.py",
-    "filter_by_admin5_date.py",
-    "contextual_file.py",
-    "change_to_pipe.py",
-    "zip_output.py"
+    "filter_redcap_fields.py",       # ✅ Matches uploaded file
+    "apply_special_rules.py",        # ✅ Matches uploaded file
+    "merge_baseline.py",             # ✅ Matches uploaded file
+    "flag_missing.py",               # ✅ Matches uploaded file
+    "filter_by_admin5_date.py",      # ✅ Matches uploaded file
+    "contextual_file.py",            # ✅ Matches uploaded file
+    "change_to_pipe.py"              # ✅ Matches uploaded file
+    # "zip_output.py" — Not included because you didn’t upload it
 ]
 
 print("🚀 Running pipeline...")
