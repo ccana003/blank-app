@@ -22,11 +22,22 @@ if st.button("Run Script"):
         # Process CSV
         output_df = process_csv(df, selected_date)
 
-        # Save output
+        # Save output (optional: still saves to disk)
         output_path = f"output/processed_{selected_date}.csv"
         output_df.to_csv(output_path, index=False)
 
-        st.success(f"Done! File saved to `{output_path}`")
+        st.success("✅ Done! Your file is ready.")
+
+        # Download button
+        csv_bytes = output_df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="⬇️ Download Processed CSV",
+            data=csv_bytes,
+            file_name=f"processed_{selected_date}.csv",
+            mime="text/csv"
+        )
+
+        # Show preview
         st.dataframe(output_df)
     else:
-        st.warning("Please upload a CSV file first.")
+        st.warning("⚠️ Please upload a CSV file first.")
