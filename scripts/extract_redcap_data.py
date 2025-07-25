@@ -26,4 +26,6 @@ def pull_data() -> pd.DataFrame:
     if response.status_code != 200:
         raise Exception(f"REDCap API request failed: {response.status_code} - {response.text}")
 
-    return pd.read_csv(io.StringIO(response.text), dtype=str)
+    df = pd.read_csv(io.StringIO(response.text), dtype=str)
+    print("🔍 REDCap columns:", df.columns.tolist())
+    return df
