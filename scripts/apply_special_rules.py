@@ -134,7 +134,7 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
 
 if __name__ == "__main__":
     import scripts.apply_special_rules as apply_special_rules  # or from . import transform_survey if needed
-    INPUT_FILE = "files/redcap_selected.csv"
+    INPUT_FILE = "files/redcap_filtered.csv"
     OUTPUT_FILE = "files/redcap_transformed.csv"
 
     df = pd.read_csv(INPUT_FILE, dtype=str)
