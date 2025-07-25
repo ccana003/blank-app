@@ -44,7 +44,7 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
     return filtered_df.reset_index(drop=True)
 
 if __name__ == "__main__":
-    from select_variables import apply  # or just `import select_variables` if needed
+    from scripts.filter_redcap_fields import apply  # or just `import select_variables` if needed
     INPUT_FILE = "files/redcap_enrolled.csv"
     OUTPUT_FILE = "files/redcap_selected.csv"
 
